@@ -1,0 +1,59 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { color: #121212; background: #ebe9e4; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+button, input { font: inherit; }
+button { border: 0; background: none; padding: 0; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button:focus-visible, input:focus-visible, .feed:focus-visible { outline: 2px solid #0095f6; outline-offset: -2px; }
+button:active { opacity: .65; }
+svg { display: block; width: 21px; height: 21px; }
+.stage { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px 16px 18px; background: radial-gradient(ellipse at 50% 10%, #faf9f6, #eeece6 55%, #e1dfd8); }
+.phone-placement { zoom: 1.15; }
+.md-device.iphone-17-pro { box-shadow: inset 0 1px 3px #fff9, inset 0 -2px 3px #0004, 0 20px 42px #4d49434d, 0 5px 12px #0003; }
+.md-device.iphone-17-pro.white { background: linear-gradient(110deg, #a9aba9, #f6f6f2 18%, #c5c7c4 33%, #f8f9f6 63%, #a5a6a4 84%, #f5f5f1); }
+.md-device.iphone-17-pro .screen { background: white; display: flex; flex-direction: column; border-width: 4px; isolation: isolate; }
+.md-device.iphone-17-pro .island { top: 17px; width: 70px; height: 21px; }
+.status { height: 36px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 3px 17px 0; font-size: 10px; font-weight: 650; }
+.status svg { width: 43px; height: 12px; }
+.top { height: 40px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; }
+.wordmark { display: flex; align-items: center; gap: 5px; }
+.wordmark svg { width: 91px; height: 29px; }
+.chevron { width: 5px; height: 5px; border-bottom: 1px solid; border-right: 1px solid; transform: rotate(45deg); margin-top: -4px; }
+.top-icons { display: flex; gap: 8px; }
+.icon-button { min-width: 30px; height: 32px; display: inline-flex; align-items: center; justify-content: center; }
+.top-title { font-size: 14px; font-weight: 700; }
+.back-button { font-size: 25px; width: 28px; height: 32px; text-align: left; }
+.feed { overflow: auto; overscroll-behavior: contain; scrollbar-width: none; flex: 1; min-height: 0; position: relative; }
+.feed::-webkit-scrollbar { display: none; }
+.post-head { height: 44px; display: flex; align-items: center; padding: 5px 9px; gap: 7px; }
+.avatar { display: block; width: 29px; height: 29px; border-radius: 50%; padding: 2px; background: linear-gradient(30deg, #ffd676, #f34666 50%, #a637b9); flex: none; }
+.avatar img, .mini-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.avatar img { border: 1.5px solid #fff; }
+.identity { flex: 1; text-align: left; font-size: 10px; font-weight: 650; line-height: 1.35; }
+.identity small { display: block; font-size: 8px; font-weight: 400; }
+.more svg { width: 18px; }
+.photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain; background: #f6f4f1; }
+.actions { display: flex; align-items: center; gap: 6px; padding: 3px 6px 0; }
+.actions .save { margin-left: auto; }
+.like[aria-pressed="true"] { color: #ff3040; }
+.save[aria-pressed="true"] polygon { fill: currentColor; }
+.caption { padding: 0 10px 13px; font-size: 9.5px; line-height: 1.5; }
+.caption p { margin: 3px 0; }
+.caption .comment-link { display: block; color: #737373; margin-top: 5px; font-size: 9px; }
+.caption time { display: block; margin-top: 5px; color: #737373; font-size: 7px; letter-spacing: .03em; text-transform: uppercase; }
+.post { border-bottom: 1px solid #f2f2f2; }
+.end { text-align: center; padding: 28px 12px; }
+.end .check { border: 1px solid #d73c8a; border-radius: 50%; width: 30px; height: 30px; margin: 0 auto 9px; color: #d73c8a; display: grid; place-items: center; font-size: 18px; }
+.end strong { font-size: 12px; font-weight: 500; }
+.end p { color: #737373; font-size: 9px; }
+.bottom { height: 38px; flex: none; display: flex; align-items: center; justify-content: space-around; border-top: 1px solid #eaeaea; background: white; }
+.bottom button { width: 42px; height: 36px; display: grid; place-items: center; }
+.bottom button[aria-current="page"] svg { stroke: currentColor; stroke-width: .6px; }
+.mini-avatar { display: block; width: 21px; height: 21px; padding: 1px; border-radius: 50%; }
+[aria-current="page"] .mini-avatar { outline: 1px solid #121212; }
+.home-area { height: 14px; flex: none; display: flex; justify-content: center; align-items: center; }
+.home-line { width: 88px; height: 3px; background: #151515; border-radius: 5px; }
+.hint { color: #898781; font-size: 11px; letter-spacing: .12em; margin: 19px 0 0; }
+@media (max-height: 750px) { .phone-placement { zoom: 1; } }
+@media (max-height: 620px), (max-width: 340px) { .phone-placement { zoom: .82; } .stage { padding: 10px; } .hint { margin-top: 10px; } }
+@media (max-height: 490px) { .phone-placement { zoom: .63; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }

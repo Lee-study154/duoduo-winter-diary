@@ -1,0 +1,1210 @@
+/*! modern-devices.css v1.0.0 | MIT License | github.com/ZenoTeam/modern-devices.css */
+
+/* ============================================
+   BASE DEVICE
+   ============================================ */
+.md-device {
+  position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+}
+.md-device * { box-sizing: border-box; }
+
+.md-device .screen {
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  background: #0a0a0c;
+  border: 6px solid #000;
+}
+
+/* Shine / reflection overlay for 3D look on iPhone frames */
+.md-device[class*="iphone-17"]::after,
+.md-device[class*="iphone-16"]::after,
+.md-device[class*="iphone-15"]::after,
+.md-device.iphone-se::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    155deg,
+    rgba(255,255,255,0.22) 0%,
+    rgba(255,255,255,0.06) 15%,
+    transparent 40%,
+    transparent 60%,
+    rgba(255,255,255,0.03) 85%,
+    rgba(255,255,255,0.10) 100%
+  );
+  pointer-events: none;
+  z-index: 9;
+}
+
+/* ============================================
+   SHARED: iPhone Full-Screen (15/16/17 series)
+   - Dynamic Island
+   - Side buttons
+   - Antenna bands
+   ============================================ */
+
+/* --- iPhone 17 Pro / Pro Max --- */
+.md-device.iphone-17-pro,
+.md-device.iphone-17-pro-max {
+  width: 262px;
+  height: 536px;
+  border-radius: 46px;
+  padding: 7px;
+  background: linear-gradient(135deg, #8a8a8e, #a0a0a4 25%, #c0c0c3 50%, #a0a0a4 75%, #78787c);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.2),
+    inset -1px 0 2px rgba(255,255,255,0.05),
+    inset 0 -2px 3px rgba(0,0,0,0.25),
+    0 12px 40px rgba(0,0,0,0.4),
+    0 0 0 0.5px rgba(255,255,255,0.1);
+}
+.md-device.iphone-17-pro-max { width: 290px; height: 590px; border-radius: 50px; }
+
+.md-device.iphone-17-pro .screen,
+.md-device.iphone-17-pro-max .screen {
+  width: 100%; height: 100%;
+  border-radius: 39px;
+  background: #0a0a0c;
+}
+
+/* Dynamic Island */
+.md-device.iphone-17-pro .island,
+.md-device.iphone-17-pro-max .island {
+  position: absolute; top: 19px; left: 50%; transform: translateX(-50%);
+  width: 76px; height: 24px; border-radius: 12px; background: #000; z-index: 10;
+}
+.md-device.iphone-17-pro .island::after,
+.md-device.iphone-17-pro-max .island::after {
+  content: '';
+  position: absolute;
+  right: 12px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 8%, #1a1a2e 35%, #0a0a0e 100%);
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.2), 0 0 1px rgba(0,0,0,0.5);
+}
+
+/* Buttons */
+.md-device.iphone-17-pro .power, .md-device.iphone-17-pro-max .power {
+  position: absolute; right: -2.5px; top: 140px;
+  width: 3px; height: 54px; border-radius: 1.5px;
+  background: linear-gradient(to left, #78787c, #a0a0a4, #78787c); z-index: 5;
+}
+.md-device.iphone-17-pro .action, .md-device.iphone-17-pro-max .action {
+  position: absolute; left: -2.5px; top: 120px;
+  width: 3px; height: 20px; border-radius: 1.5px;
+  background: linear-gradient(to right, #78787c, #a0a0a4, #78787c); z-index: 5;
+}
+.md-device.iphone-17-pro .camera-ctrl, .md-device.iphone-17-pro-max .camera-ctrl {
+  position: absolute; right: -2px; bottom: 100px;
+  width: 3px; height: 18px; border-radius: 1.5px;
+  background: linear-gradient(to left, #78787c, #a0a0a4, #78787c); z-index: 5;
+}
+.md-device.iphone-17-pro .vol-up, .md-device.iphone-17-pro-max .vol-up {
+  position: absolute; left: -2.5px; top: 160px;
+  width: 3px; height: 36px; border-radius: 1.5px;
+  background: linear-gradient(to right, #78787c, #a0a0a4, #78787c); z-index: 5;
+}
+.md-device.iphone-17-pro .vol-down, .md-device.iphone-17-pro-max .vol-down {
+  position: absolute; left: -2.5px; top: 206px;
+  width: 3px; height: 36px; border-radius: 1.5px;
+  background: linear-gradient(to right, #78787c, #a0a0a4, #78787c); z-index: 5;
+}
+
+/* Antenna Bands */
+.md-device.iphone-17-pro .antenna-top-left, .md-device.iphone-17-pro-max .antenna-top-left {
+  position: absolute; left: 0; top: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+.md-device.iphone-17-pro .antenna-top-right, .md-device.iphone-17-pro-max .antenna-top-right {
+  position: absolute; right: 0; top: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+.md-device.iphone-17-pro .antenna-bottom-left, .md-device.iphone-17-pro-max .antenna-bottom-left {
+  position: absolute; left: 0; bottom: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+.md-device.iphone-17-pro .antenna-bottom-right, .md-device.iphone-17-pro-max .antenna-bottom-right {
+  position: absolute; right: 0; bottom: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+
+/* Home Indicator */
+.md-device.iphone-17-pro .home-indicator, .md-device.iphone-17-pro-max .home-indicator {
+  position: absolute; bottom: 21px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); z-index: 10;
+}
+
+/* === iPhone 17 Pro Colors === */
+/* Natural Titanium (default) */
+
+/* Black Titanium */
+.md-device.iphone-17-pro.black, .md-device.iphone-17-pro-max.black {
+  background: linear-gradient(135deg, #2c2c2e, #3a3a3c 25%, #48484a 50%, #3a3a3c 75%, #1c1c1e);
+  box-shadow: inset 0 2px 3px rgba(255,255,255,0.1), inset 0 -2px 3px rgba(0,0,0,0.3),
+    0 12px 40px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.05);
+}
+.md-device.iphone-17-pro.black .power, .md-device.iphone-17-pro.black .action,
+.md-device.iphone-17-pro.black .camera-ctrl, .md-device.iphone-17-pro.black .vol-up,
+.md-device.iphone-17-pro.black .vol-down, .md-device.iphone-17-pro-max.black .power,
+.md-device.iphone-17-pro-max.black .action, .md-device.iphone-17-pro-max.black .camera-ctrl,
+.md-device.iphone-17-pro-max.black .vol-up, .md-device.iphone-17-pro-max.black .vol-down {
+  background: linear-gradient(to right, #1c1c1e, #3a3a3c, #1c1c1e);
+}
+.md-device.iphone-17-pro.black .antenna-top-left, .md-device.iphone-17-pro.black .antenna-top-right,
+.md-device.iphone-17-pro.black .antenna-bottom-left, .md-device.iphone-17-pro.black .antenna-bottom-right,
+.md-device.iphone-17-pro-max.black .antenna-top-left, .md-device.iphone-17-pro-max.black .antenna-top-right,
+.md-device.iphone-17-pro-max.black .antenna-bottom-left, .md-device.iphone-17-pro-max.black .antenna-bottom-right {
+  background: #111113;
+}
+
+/* White Titanium */
+.md-device.iphone-17-pro.white, .md-device.iphone-17-pro-max.white {
+  background: linear-gradient(135deg, #d4d4d8, #e4e4e8 25%, #f0f0f3 50%, #e4e4e8 75%, #c8c8cc);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.35), inset 0 -2px 3px rgba(0,0,0,0.15),
+    0 12px 40px rgba(0,0,0,0.3), 0 0 0 0.5px rgba(255,255,255,0.2);
+}
+.md-device.iphone-17-pro.white .power, .md-device.iphone-17-pro.white .action,
+.md-device.iphone-17-pro.white .camera-ctrl, .md-device.iphone-17-pro.white .vol-up,
+.md-device.iphone-17-pro.white .vol-down, .md-device.iphone-17-pro-max.white .power,
+.md-device.iphone-17-pro-max.white .action, .md-device.iphone-17-pro-max.white .camera-ctrl,
+.md-device.iphone-17-pro-max.white .vol-up, .md-device.iphone-17-pro-max.white .vol-down {
+  background: linear-gradient(to right, #c8c8cc, #e0e0e4, #c8c8cc);
+}
+.md-device.iphone-17-pro.white .antenna-top-left, .md-device.iphone-17-pro.white .antenna-top-right,
+.md-device.iphone-17-pro.white .antenna-bottom-left, .md-device.iphone-17-pro.white .antenna-bottom-right,
+.md-device.iphone-17-pro-max.white .antenna-top-left, .md-device.iphone-17-pro-max.white .antenna-top-right,
+.md-device.iphone-17-pro-max.white .antenna-bottom-left, .md-device.iphone-17-pro-max.white .antenna-bottom-right {
+  background: #8a8a8e;
+}
+
+/* Desert Titanium */
+.md-device.iphone-17-pro.desert, .md-device.iphone-17-pro-max.desert {
+  background: linear-gradient(135deg, #9a8e7c, #b0a490 25%, #c4b8a4 50%, #b0a490 75%, #8a7e6c);
+  box-shadow: inset 0 2px 3px rgba(255,255,255,0.18), inset 0 -2px 3px rgba(0,0,0,0.2),
+    0 12px 40px rgba(0,0,0,0.35), 0 0 0 0.5px rgba(255,255,255,0.1);
+}
+.md-device.iphone-17-pro.desert .power, .md-device.iphone-17-pro.desert .action,
+.md-device.iphone-17-pro.desert .camera-ctrl, .md-device.iphone-17-pro.desert .vol-up,
+.md-device.iphone-17-pro.desert .vol-down, .md-device.iphone-17-pro-max.desert .power,
+.md-device.iphone-17-pro-max.desert .action, .md-device.iphone-17-pro-max.desert .camera-ctrl,
+.md-device.iphone-17-pro-max.desert .vol-up, .md-device.iphone-17-pro-max.desert .vol-down {
+  background: linear-gradient(to right, #8a7e6c, #b0a490, #8a7e6c);
+}
+.md-device.iphone-17-pro.desert .antenna-top-left, .md-device.iphone-17-pro.desert .antenna-top-right,
+.md-device.iphone-17-pro.desert .antenna-bottom-left, .md-device.iphone-17-pro.desert .antenna-bottom-right,
+.md-device.iphone-17-pro-max.desert .antenna-top-left, .md-device.iphone-17-pro-max.desert .antenna-top-right,
+.md-device.iphone-17-pro-max.desert .antenna-bottom-left, .md-device.iphone-17-pro-max.desert .antenna-bottom-right {
+  background: #6a6050;
+}
+
+
+/* --- iPhone 17 --- */
+.md-device.iphone-17 {
+  width: 254px;
+  height: 520px;
+  border-radius: 44px;
+  padding: 7px;
+  background: linear-gradient(135deg, #1c1c1e, #2c2c2e 25%, #3a3a3c 50%, #2c2c2e 75%, #1c1c1e);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.12),
+    inset 0 -2px 3px rgba(0,0,0,0.3),
+    0 12px 40px rgba(0,0,0,0.4),
+    0 0 0 0.5px rgba(255,255,255,0.06);
+}
+
+.md-device.iphone-17 .screen {
+  width: 100%; height: 100%; border-radius: 37px; background: #0a0a0c;
+}
+.md-device.iphone-17 .island {
+  position: absolute; top: 19px; left: 50%; transform: translateX(-50%);
+  width: 76px; height: 24px; border-radius: 12px; background: #000; z-index: 10;
+}
+.md-device.iphone-17 .island::after {
+  content: '';
+  position: absolute;
+  right: 12px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 8%, #1a1a2e 35%, #0a0a0e 100%);
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.2), 0 0 1px rgba(0,0,0,0.5);
+}
+.md-device.iphone-17 .power {
+  position: absolute; right: -2.5px; top: 136px;
+  width: 3px; height: 52px; border-radius: 1.5px;
+  background: linear-gradient(to left, #1c1c1e, #3a3a3c, #1c1c1e); z-index: 5;
+}
+.md-device.iphone-17 .action {
+  position: absolute; left: -2.5px; top: 116px;
+  width: 3px; height: 20px; border-radius: 1.5px;
+  background: linear-gradient(to right, #1c1c1e, #3a3a3c, #1c1c1e); z-index: 5;
+}
+.md-device.iphone-17 .camera-ctrl {
+  position: absolute; right: -2px; bottom: 96px;
+  width: 3px; height: 18px; border-radius: 1.5px;
+  background: linear-gradient(to left, #1c1c1e, #3a3a3c, #1c1c1e); z-index: 5;
+}
+.md-device.iphone-17 .vol-up {
+  position: absolute; left: -2.5px; top: 156px;
+  width: 3px; height: 34px; border-radius: 1.5px;
+  background: linear-gradient(to right, #1c1c1e, #3a3a3c, #1c1c1e); z-index: 5;
+}
+.md-device.iphone-17 .vol-down {
+  position: absolute; left: -2.5px; top: 200px;
+  width: 3px; height: 34px; border-radius: 1.5px;
+  background: linear-gradient(to right, #1c1c1e, #3a3a3c, #1c1c1e); z-index: 5;
+}
+.md-device.iphone-17 .antenna-top-left { position: absolute; left: 0; top: 68px; width: 4px; height: 2px; background: #111113; z-index: 6; }
+.md-device.iphone-17 .antenna-top-right { position: absolute; right: 0; top: 68px; width: 4px; height: 2px; background: #111113; z-index: 6; }
+.md-device.iphone-17 .antenna-bottom-left { position: absolute; left: 0; bottom: 68px; width: 4px; height: 2px; background: #111113; z-index: 6; }
+.md-device.iphone-17 .antenna-bottom-right { position: absolute; right: 0; bottom: 68px; width: 4px; height: 2px; background: #111113; z-index: 6; }
+.md-device.iphone-17 .home-indicator {
+  position: absolute; bottom: 21px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); z-index: 10;
+}
+
+/* iPhone 17 Colors */
+/* Black (default) */
+/* Green */
+.md-device.iphone-17.green {
+  background: linear-gradient(135deg, #2a4a2a, #3a6a3a 25%, #4a804a 50%, #3a6a3a 75%, #2a4a2a);
+}
+/* Blue */
+.md-device.iphone-17.blue {
+  background: linear-gradient(135deg, #2a3a6e, #3a4a88 25%, #4a5a9e 50%, #3a4a88 75%, #2a3a6e);
+}
+/* Pink */
+.md-device.iphone-17.pink {
+  background: linear-gradient(135deg, #6e3a4a, #884a5a 25%, #9e5a6a 50%, #884a5a 75%, #6e3a4a);
+}
+/* White */
+.md-device.iphone-17.white-al {
+  background: linear-gradient(135deg, #c8c8cc, #d8d8dc 25%, #e8e8ec 50%, #d8d8dc 75%, #c8c8cc);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 3px rgba(0,0,0,0.15),
+    0 12px 40px rgba(0,0,0,0.3), 0 0 0 0.5px rgba(255,255,255,0.15);
+}
+
+
+/* --- iPhone 16 Pro / Pro Max --- */
+.md-device.iphone-16-pro,
+.md-device.iphone-16-pro-max {
+  width: 260px;
+  height: 530px;
+  border-radius: 44px;
+  padding: 8px;
+  background: linear-gradient(135deg, #8a8a8e, #a0a0a4 25%, #c0c0c3 50%, #a0a0a4 75%, #78787c);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.2),
+    inset -1px 0 2px rgba(255,255,255,0.05),
+    inset 0 -2px 3px rgba(0,0,0,0.25),
+    0 12px 40px rgba(0,0,0,0.4),
+    0 0 0 0.5px rgba(255,255,255,0.1);
+}
+.md-device.iphone-16-pro-max { width: 286px; height: 582px; border-radius: 48px; }
+
+.md-device.iphone-16-pro .screen,
+.md-device.iphone-16-pro-max .screen {
+  width: 100%; height: 100%;
+  border-radius: 36px;
+  background: #0a0a0c;
+}
+
+/* Dynamic Island */
+.md-device.iphone-16-pro .island,
+.md-device.iphone-16-pro-max .island {
+  position: absolute;
+  top: 21px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px; height: 24px;
+  border-radius: 12px;
+  background: #000;
+  z-index: 10;
+}
+.md-device.iphone-16-pro .island::after,
+.md-device.iphone-16-pro-max .island::after {
+  content: '';
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 8%, #1a1a2e 35%, #0a0a0e 100%);
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.2), 0 0 1px rgba(0,0,0,0.5);
+}
+
+/* Power Button (right) */
+.md-device.iphone-16-pro .power,
+.md-device.iphone-16-pro-max .power {
+  position: absolute;
+  right: -2.5px; top: 150px;
+  width: 3px; height: 50px;
+  border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094);
+  z-index: 5;
+}
+
+/* Action Button (left top) */
+.md-device.iphone-16-pro .action,
+.md-device.iphone-16-pro-max .action {
+  position: absolute;
+  left: -2.5px; top: 115px;
+  width: 3px; height: 26px;
+  border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094);
+  z-index: 5;
+}
+
+/* Camera Control Button (right, below power) - iPhone 16 exclusive */
+.md-device.iphone-16-pro .camera-ctrl,
+.md-device.iphone-16-pro-max .camera-ctrl {
+  position: absolute;
+  right: -2px; top: 320px;
+  width: 2.5px; height: 20px;
+  border-radius: 1px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094);
+  z-index: 5;
+}
+
+/* Volume Up */
+.md-device.iphone-16-pro .vol-up,
+.md-device.iphone-16-pro-max .vol-up {
+  position: absolute;
+  left: -2.5px; top: 162px;
+  width: 3px; height: 38px;
+  border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094);
+  z-index: 5;
+}
+
+/* Volume Down */
+.md-device.iphone-16-pro .vol-down,
+.md-device.iphone-16-pro-max .vol-down {
+  position: absolute;
+  left: -2.5px; top: 210px;
+  width: 3px; height: 38px;
+  border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094);
+  z-index: 5;
+}
+
+/* Antenna Lines */
+.md-device.iphone-16-pro .antenna-top-left,
+.md-device.iphone-16-pro-max .antenna-top-left {
+  position: absolute;
+  left: 0; top: 72px;
+  width: 6px; height: 2px;
+  background: #48484a;
+  z-index: 6;
+}
+.md-device.iphone-16-pro .antenna-top-right,
+.md-device.iphone-16-pro-max .antenna-top-right {
+  position: absolute;
+  right: 0; top: 72px;
+  width: 6px; height: 2px;
+  background: #48484a;
+  z-index: 6;
+}
+.md-device.iphone-16-pro .antenna-bottom-left,
+.md-device.iphone-16-pro-max .antenna-bottom-left {
+  position: absolute;
+  left: 0; bottom: 72px;
+  width: 6px; height: 2px;
+  background: #48484a;
+  z-index: 6;
+}
+.md-device.iphone-16-pro .antenna-bottom-right,
+.md-device.iphone-16-pro-max .antenna-bottom-right {
+  position: absolute;
+  right: 0; bottom: 72px;
+  width: 6px; height: 2px;
+  background: #48484a;
+  z-index: 6;
+}
+
+/* Home Indicator */
+.md-device.iphone-16-pro .home-indicator,
+.md-device.iphone-16-pro-max .home-indicator {
+  position: absolute;
+  bottom: 21px; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.2);
+  z-index: 10;
+}
+
+/* === Color Variants: iPhone 16 Pro === */
+/* Natural Titanium (default) - already set above */
+
+/* Black Titanium */
+.md-device.iphone-16-pro.black,
+.md-device.iphone-16-pro-max.black {
+  background: linear-gradient(135deg, #2c2c2e, #3a3a3c 25%, #48484a 50%, #3a3a3c 75%, #1c1c1e);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.1),
+    inset 0 -2px 3px rgba(0,0,0,0.3),
+    0 12px 40px rgba(0,0,0,0.5),
+    0 0 0 0.5px rgba(255,255,255,0.05);
+}
+.md-device.iphone-16-pro.black .power,
+.md-device.iphone-16-pro.black .action,
+.md-device.iphone-16-pro.black .camera-ctrl,
+.md-device.iphone-16-pro.black .vol-up,
+.md-device.iphone-16-pro.black .vol-down,
+.md-device.iphone-16-pro-max.black .power,
+.md-device.iphone-16-pro-max.black .action,
+.md-device.iphone-16-pro-max.black .camera-ctrl,
+.md-device.iphone-16-pro-max.black .vol-up,
+.md-device.iphone-16-pro-max.black .vol-down {
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c);
+}
+.md-device.iphone-16-pro.black .antenna-top-left,
+.md-device.iphone-16-pro.black .antenna-top-right,
+.md-device.iphone-16-pro.black .antenna-bottom-left,
+.md-device.iphone-16-pro.black .antenna-bottom-right,
+.md-device.iphone-16-pro-max.black .antenna-top-left,
+.md-device.iphone-16-pro-max.black .antenna-top-right,
+.md-device.iphone-16-pro-max.black .antenna-bottom-left,
+.md-device.iphone-16-pro-max.black .antenna-bottom-right {
+  background: #111113;
+}
+
+/* White Titanium */
+.md-device.iphone-16-pro.white,
+.md-device.iphone-16-pro-max.white {
+  background: linear-gradient(135deg, #d4d4d8, #e4e4e8 25%, #f0f0f3 50%, #e4e4e8 75%, #c8c8cc);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.35),
+    inset 0 -2px 3px rgba(0,0,0,0.15),
+    0 12px 40px rgba(0,0,0,0.3),
+    0 0 0 0.5px rgba(255,255,255,0.2);
+}
+.md-device.iphone-16-pro.white .power,
+.md-device.iphone-16-pro.white .action,
+.md-device.iphone-16-pro.white .camera-ctrl,
+.md-device.iphone-16-pro.white .vol-up,
+.md-device.iphone-16-pro.white .vol-down,
+.md-device.iphone-16-pro-max.white .power,
+.md-device.iphone-16-pro-max.white .action,
+.md-device.iphone-16-pro-max.white .camera-ctrl,
+.md-device.iphone-16-pro-max.white .vol-up,
+.md-device.iphone-16-pro-max.white .vol-down {
+  background: linear-gradient(to right, #c8c8cc, #e8e8ec, #c8c8cc);
+}
+.md-device.iphone-16-pro.white .antenna-top-left,
+.md-device.iphone-16-pro.white .antenna-top-right,
+.md-device.iphone-16-pro.white .antenna-bottom-left,
+.md-device.iphone-16-pro.white .antenna-bottom-right,
+.md-device.iphone-16-pro-max.white .antenna-top-left,
+.md-device.iphone-16-pro-max.white .antenna-top-right,
+.md-device.iphone-16-pro-max.white .antenna-bottom-left,
+.md-device.iphone-16-pro-max.white .antenna-bottom-right {
+  background: #8a8a8e;
+}
+
+/* Desert Titanium */
+.md-device.iphone-16-pro.desert,
+.md-device.iphone-16-pro-max.desert {
+  background: linear-gradient(135deg, #9a8e7c, #b0a490 25%, #c4b8a4 50%, #b0a490 75%, #8a7e6c);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.18),
+    inset 0 -2px 3px rgba(0,0,0,0.2),
+    0 12px 40px rgba(0,0,0,0.35),
+    0 0 0 0.5px rgba(255,255,255,0.1);
+}
+.md-device.iphone-16-pro.desert .power,
+.md-device.iphone-16-pro.desert .action,
+.md-device.iphone-16-pro.desert .camera-ctrl,
+.md-device.iphone-16-pro.desert .vol-up,
+.md-device.iphone-16-pro.desert .vol-down,
+.md-device.iphone-16-pro-max.desert .power,
+.md-device.iphone-16-pro-max.desert .action,
+.md-device.iphone-16-pro-max.desert .camera-ctrl,
+.md-device.iphone-16-pro-max.desert .vol-up,
+.md-device.iphone-16-pro-max.desert .vol-down {
+  background: linear-gradient(to right, #9a8e7c, #b8ac98, #9a8e7c);
+}
+.md-device.iphone-16-pro.desert .antenna-top-left,
+.md-device.iphone-16-pro.desert .antenna-top-right,
+.md-device.iphone-16-pro.desert .antenna-bottom-left,
+.md-device.iphone-16-pro.desert .antenna-bottom-right,
+.md-device.iphone-16-pro-max.desert .antenna-top-left,
+.md-device.iphone-16-pro-max.desert .antenna-top-right,
+.md-device.iphone-16-pro-max.desert .antenna-bottom-left,
+.md-device.iphone-16-pro-max.desert .antenna-bottom-right {
+  background: #4a3e2c;
+}
+
+
+/* --- iPhone 16 / 16 Plus --- */
+.md-device.iphone-16,
+.md-device.iphone-16-plus {
+  width: 252px;
+  height: 514px;
+  border-radius: 42px;
+  padding: 8px;
+  background: linear-gradient(135deg, #1c1c1e, #2c2c2e 25%, #3a3a3c 50%, #2c2c2e 75%, #1c1c1e);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.12),
+    inset 0 -2px 3px rgba(0,0,0,0.3),
+    0 12px 40px rgba(0,0,0,0.4),
+    0 0 0 0.5px rgba(255,255,255,0.06);
+}
+.md-device.iphone-16-plus { width: 276px; height: 562px; border-radius: 46px; }
+
+.md-device.iphone-16 .screen,
+.md-device.iphone-16-plus .screen { width: 100%; height: 100%; border-radius: 34px; }
+
+/* iPhone 16 shares Dynamic Island, buttons, antenna with 16 Pro */
+.md-device.iphone-16 .island,
+.md-device.iphone-16-plus .island {
+  position: absolute; top: 21px; left: 50%; transform: translateX(-50%);
+  width: 72px; height: 24px; border-radius: 12px; background: #000; z-index: 10;
+}
+.md-device.iphone-16 .island::after,
+.md-device.iphone-16-plus .island::after {
+  content: ''; position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 8%, #1a1a2e 35%, #0a0a0e 100%);
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.2), 0 0 1px rgba(0,0,0,0.5);
+}
+
+.md-device.iphone-16 .power, .md-device.iphone-16-plus .power {
+  position: absolute; right: -2.5px; top: 145px; width: 3px; height: 50px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-16 .action, .md-device.iphone-16-plus .action {
+  position: absolute; left: -2.5px; top: 110px; width: 3px; height: 26px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-16 .camera-ctrl, .md-device.iphone-16-plus .camera-ctrl {
+  position: absolute; right: -2px; top: 310px; width: 2.5px; height: 20px; border-radius: 1px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-16 .vol-up, .md-device.iphone-16-plus .vol-up {
+  position: absolute; left: -2.5px; top: 155px; width: 3px; height: 38px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-16 .vol-down, .md-device.iphone-16-plus .vol-down {
+  position: absolute; left: -2.5px; top: 203px; width: 3px; height: 38px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-16 .antenna-top-left, .md-device.iphone-16-plus .antenna-top-left {
+  position: absolute; left: 0; top: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-16 .antenna-top-right, .md-device.iphone-16-plus .antenna-top-right {
+  position: absolute; right: 0; top: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-16 .antenna-bottom-left, .md-device.iphone-16-plus .antenna-bottom-left {
+  position: absolute; left: 0; bottom: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-16 .antenna-bottom-right, .md-device.iphone-16-plus .antenna-bottom-right {
+  position: absolute; right: 0; bottom: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-16 .home-indicator, .md-device.iphone-16-plus .home-indicator {
+  position: absolute; bottom: 21px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); z-index: 10;
+}
+
+/* iPhone 16 Colors */
+/* Black (default) */
+/* Ultramarine */
+.md-device.iphone-16.ultramarine, .md-device.iphone-16-plus.ultramarine {
+  background: linear-gradient(135deg, #2a3a6e, #3a4a88 25%, #4a5a9e 50%, #3a4a88 75%, #2a3a6e);
+}
+/* Teal */
+.md-device.iphone-16.teal, .md-device.iphone-16-plus.teal {
+  background: linear-gradient(135deg, #2a5e5e, #3a7878 25%, #4a9090 50%, #3a7878 75%, #2a5e5e);
+}
+/* Pink */
+.md-device.iphone-16.pink, .md-device.iphone-16-plus.pink {
+  background: linear-gradient(135deg, #9e6a7a, #b87e90 25%, #d090a4 50%, #b87e90 75%, #9e6a7a);
+}
+/* White */
+.md-device.iphone-16.white, .md-device.iphone-16-plus.white {
+  background: linear-gradient(135deg, #d4d4d8, #e4e4e8 25%, #f0f0f3 50%, #e4e4e8 75%, #c8c8cc);
+}
+
+
+/* --- iPhone 15 Pro / Pro Max --- */
+.md-device.iphone-15-pro,
+.md-device.iphone-15-pro-max {
+  width: 258px;
+  height: 526px;
+  border-radius: 44px;
+  padding: 8px;
+  background: linear-gradient(135deg, #8a8a8e, #a0a0a4 25%, #c0c0c3 50%, #a0a0a4 75%, #78787c);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.2),
+    inset -1px 0 2px rgba(255,255,255,0.05),
+    inset 0 -2px 3px rgba(0,0,0,0.25),
+    0 12px 40px rgba(0,0,0,0.4),
+    0 0 0 0.5px rgba(255,255,255,0.1);
+}
+.md-device.iphone-15-pro-max { width: 284px; height: 578px; border-radius: 48px; }
+
+.md-device.iphone-15-pro .screen,
+.md-device.iphone-15-pro-max .screen { width: 100%; height: 100%; border-radius: 36px; }
+
+/* Dynamic Island */
+.md-device.iphone-15-pro .island, .md-device.iphone-15-pro-max .island {
+  position: absolute; top: 21px; left: 50%; transform: translateX(-50%);
+  width: 72px; height: 24px; border-radius: 12px; background: #000; z-index: 10;
+}
+.md-device.iphone-15-pro .island::after, .md-device.iphone-15-pro-max .island::after {
+  content: ''; position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 8%, #1a1a2e 35%, #0a0a0e 100%);
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.2), 0 0 1px rgba(0,0,0,0.5);
+}
+
+/* 15 Pro has Action Button but NO Camera Control */
+.md-device.iphone-15-pro .power, .md-device.iphone-15-pro-max .power {
+  position: absolute; right: -2.5px; top: 150px; width: 3px; height: 50px; border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094); z-index: 5;
+}
+.md-device.iphone-15-pro .action, .md-device.iphone-15-pro-max .action {
+  position: absolute; left: -2.5px; top: 115px; width: 3px; height: 26px; border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094); z-index: 5;
+}
+.md-device.iphone-15-pro .vol-up, .md-device.iphone-15-pro-max .vol-up {
+  position: absolute; left: -2.5px; top: 162px; width: 3px; height: 38px; border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094); z-index: 5;
+}
+.md-device.iphone-15-pro .vol-down, .md-device.iphone-15-pro-max .vol-down {
+  position: absolute; left: -2.5px; top: 210px; width: 3px; height: 38px; border-radius: 1.5px;
+  background: linear-gradient(to right, #909094, #b8b8bc, #909094); z-index: 5;
+}
+.md-device.iphone-15-pro .antenna-top-left, .md-device.iphone-15-pro-max .antenna-top-left {
+  position: absolute; left: 0; top: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+.md-device.iphone-15-pro .antenna-top-right, .md-device.iphone-15-pro-max .antenna-top-right {
+  position: absolute; right: 0; top: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+.md-device.iphone-15-pro .antenna-bottom-left, .md-device.iphone-15-pro-max .antenna-bottom-left {
+  position: absolute; left: 0; bottom: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+.md-device.iphone-15-pro .antenna-bottom-right, .md-device.iphone-15-pro-max .antenna-bottom-right {
+  position: absolute; right: 0; bottom: 72px; width: 4px; height: 2px; background: #48484a; z-index: 6;
+}
+.md-device.iphone-15-pro .home-indicator, .md-device.iphone-15-pro-max .home-indicator {
+  position: absolute; bottom: 21px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); z-index: 10;
+}
+
+/* 15 Pro Colors */
+/* Natural Titanium (default) */
+/* Black Titanium */
+.md-device.iphone-15-pro.black, .md-device.iphone-15-pro-max.black {
+  background: linear-gradient(135deg, #2c2c2e, #3a3a3c 25%, #48484a 50%, #3a3a3c 75%, #1c1c1e);
+}
+/* White Titanium */
+.md-device.iphone-15-pro.white, .md-device.iphone-15-pro-max.white {
+  background: linear-gradient(135deg, #d4d4d8, #e4e4e8 25%, #f0f0f3 50%, #e4e4e8 75%, #c8c8cc);
+}
+/* Blue Titanium */
+.md-device.iphone-15-pro.blue, .md-device.iphone-15-pro-max.blue {
+  background: linear-gradient(135deg, #3a4a6e, #4a5a82 25%, #5a6a96 50%, #4a5a82 75%, #3a4a6e);
+}
+
+
+/* --- iPhone 15 / 15 Plus --- */
+.md-device.iphone-15,
+.md-device.iphone-15-plus {
+  width: 250px;
+  height: 510px;
+  border-radius: 42px;
+  padding: 8px;
+  background: linear-gradient(135deg, #1c1c1e, #2c2c2e 25%, #3a3a3c 50%, #2c2c2e 75%, #1c1c1e);
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.12),
+    inset 0 -2px 3px rgba(0,0,0,0.3),
+    0 12px 40px rgba(0,0,0,0.4),
+    0 0 0 0.5px rgba(255,255,255,0.06);
+}
+.md-device.iphone-15-plus { width: 274px; height: 558px; border-radius: 46px; }
+
+.md-device.iphone-15 .screen, .md-device.iphone-15-plus .screen {
+  width: 100%; height: 100%; border-radius: 34px;
+}
+
+/* iPhone 15 has Dynamic Island, NO Action Button, NO Camera Control */
+.md-device.iphone-15 .island, .md-device.iphone-15-plus .island {
+  position: absolute; top: 21px; left: 50%; transform: translateX(-50%);
+  width: 72px; height: 24px; border-radius: 12px; background: #000; z-index: 10;
+}
+.md-device.iphone-15 .island::after, .md-device.iphone-15-plus .island::after {
+  content: ''; position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 8%, #1a1a2e 35%, #0a0a0e 100%);
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.2), 0 0 1px rgba(0,0,0,0.5);
+}
+
+/* 15 standard has mute switch instead of action button */
+.md-device.iphone-15 .power, .md-device.iphone-15-plus .power {
+  position: absolute; right: -2.5px; top: 145px; width: 3px; height: 50px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-15 .mute, .md-device.iphone-15-plus .mute {
+  position: absolute; left: -2.5px; top: 110px; width: 3px; height: 20px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-15 .vol-up, .md-device.iphone-15-plus .vol-up {
+  position: absolute; left: -2.5px; top: 148px; width: 3px; height: 38px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-15 .vol-down, .md-device.iphone-15-plus .vol-down {
+  position: absolute; left: -2.5px; top: 196px; width: 3px; height: 38px; border-radius: 1.5px;
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c); z-index: 5;
+}
+.md-device.iphone-15 .antenna-top-left, .md-device.iphone-15-plus .antenna-top-left {
+  position: absolute; left: 0; top: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-15 .antenna-top-right, .md-device.iphone-15-plus .antenna-top-right {
+  position: absolute; right: 0; top: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-15 .antenna-bottom-left, .md-device.iphone-15-plus .antenna-bottom-left {
+  position: absolute; left: 0; bottom: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-15 .antenna-bottom-right, .md-device.iphone-15-plus .antenna-bottom-right {
+  position: absolute; right: 0; bottom: 68px; width: 4px; height: 2px; background: #111113; z-index: 6;
+}
+.md-device.iphone-15 .home-indicator, .md-device.iphone-15-plus .home-indicator {
+  position: absolute; bottom: 21px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); z-index: 10;
+}
+
+/* 15 Colors */
+.md-device.iphone-15.blue, .md-device.iphone-15-plus.blue {
+  background: linear-gradient(135deg, #3a5a7e, #4a6e94 25%, #5a82aa 50%, #4a6e94 75%, #3a5a7e);
+}
+.md-device.iphone-15.green, .md-device.iphone-15-plus.green {
+  background: linear-gradient(135deg, #3a5e3a, #4a784a 25%, #5a905a 50%, #4a784a 75%, #3a5e3a);
+}
+.md-device.iphone-15.yellow, .md-device.iphone-15-plus.yellow {
+  background: linear-gradient(135deg, #8e8a3a, #a8a44a 25%, #c0bc5a 50%, #a8a44a 75%, #8e8a3a);
+}
+.md-device.iphone-15.pink, .md-device.iphone-15-plus.pink {
+  background: linear-gradient(135deg, #9e6a7a, #b87e90 25%, #d090a4 50%, #b87e90 75%, #9e6a7a);
+}
+
+
+/* --- iPhone SE (Home Button) --- */
+.md-device.iphone-se {
+  width: 230px;
+  height: 460px;
+  border-radius: 30px;
+  padding: 12px 8px;
+  background: linear-gradient(135deg, #d4d4d8, #e4e4e8 25%, #f0f0f3 50%, #e4e4e8 75%, #c8c8cc);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.3),
+    inset 0 -2px 3px rgba(0,0,0,0.15),
+    0 12px 40px rgba(0,0,0,0.3),
+    0 0 0 0.5px rgba(255,255,255,0.15);
+}
+.md-device.iphone-se .screen {
+  width: 100%; height: 100%; border-radius: 4px;
+  margin-top: 48px; margin-bottom: 48px;
+  height: calc(100% - 96px);
+}
+.md-device.iphone-se .speaker {
+  position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 5px; border-radius: 2.5px;
+  background: linear-gradient(180deg, #666, #999);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.4);
+  z-index: 5;
+}
+.md-device.iphone-se .camera {
+  position: absolute; top: 19px; left: 38%;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 8%, #1a1a2e 35%, #0a0a0e 100%);
+  border: 1.5px solid #555;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  z-index: 5;
+}
+.md-device.iphone-se .home {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 2.5px solid #c0c0c4;
+  background: linear-gradient(180deg, #f0f0f3 0%, #d8d8dc 100%);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,0.6),
+    inset 0 -1px 2px rgba(0,0,0,0.1),
+    0 1px 3px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+.md-device.iphone-se .home::after {
+  content: '';
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 16px; height: 16px; border-radius: 4px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+}
+.md-device.iphone-se .power {
+  position: absolute; right: -2.5px; top: 130px;
+  width: 3px; height: 42px; border-radius: 1.5px;
+  background: linear-gradient(to right, #c8c8cc, #e0e0e4, #c8c8cc); z-index: 5;
+}
+.md-device.iphone-se .vol-up {
+  position: absolute; left: -2.5px; top: 120px;
+  width: 3px; height: 30px; border-radius: 1.5px;
+  background: linear-gradient(to right, #c8c8cc, #e0e0e4, #c8c8cc); z-index: 5;
+}
+.md-device.iphone-se .vol-down {
+  position: absolute; left: -2.5px; top: 160px;
+  width: 3px; height: 30px; border-radius: 1.5px;
+  background: linear-gradient(to right, #c8c8cc, #e0e0e4, #c8c8cc); z-index: 5;
+}
+.md-device.iphone-se .mute {
+  position: absolute; left: -2.5px; top: 95px;
+  width: 3px; height: 16px; border-radius: 1.5px;
+  background: linear-gradient(to right, #c8c8cc, #e0e0e4, #c8c8cc); z-index: 5;
+}
+
+/* SE Colors */
+.md-device.iphone-se.midnight {
+  background: linear-gradient(135deg, #1c1c2e, #2a2a3c 25%, #38384a 50%, #2a2a3c 75%, #1c1c2e);
+}
+.md-device.iphone-se.midnight .home {
+  border-color: #48484a;
+  background: linear-gradient(180deg, #3a3a3c 0%, #2c2c2e 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.1), inset 0 -1px 2px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.3);
+}
+.md-device.iphone-se.midnight .home::after { border-color: rgba(255,255,255,0.1); }
+.md-device.iphone-se.midnight .power,
+.md-device.iphone-se.midnight .vol-up,
+.md-device.iphone-se.midnight .vol-down,
+.md-device.iphone-se.midnight .mute {
+  background: linear-gradient(to right, #3a3a3c, #555557, #3a3a3c);
+}
+.md-device.iphone-se.red {
+  background: linear-gradient(135deg, #8e2020, #aa3030 25%, #c43a3a 50%, #aa3030 75%, #8e2020);
+}
+
+
+/* ============================================
+   LANDSCAPE MODE (all iPhones)
+   ============================================ */
+.md-device.iphone-16-pro.landscape,
+.md-device.iphone-16-pro-max.landscape,
+.md-device.iphone-16.landscape,
+.md-device.iphone-16-plus.landscape,
+.md-device.iphone-15-pro.landscape,
+.md-device.iphone-15-pro-max.landscape,
+.md-device.iphone-15.landscape,
+.md-device.iphone-15-plus.landscape {
+  transform: rotate(-90deg);
+}
+
+
+/* ============================================
+   MACBOOK PRO 16" / 14"
+   ============================================ */
+.md-device.macbook-pro-16,
+.md-device.macbook-pro-14 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Screen Lid */
+.md-device.macbook-pro-16 .lid,
+.md-device.macbook-pro-14 .lid {
+  position: relative;
+  width: 640px;
+  height: 420px;
+  border-radius: 14px 14px 0 0;
+  padding: 12px 12px 6px 12px;
+  background: linear-gradient(180deg, #2c2c2e, #1c1c1e);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,0.15),
+    inset 0 -1px 2px rgba(0,0,0,0.3),
+    0 -2px 10px rgba(0,0,0,0.3);
+}
+.md-device.macbook-pro-14 .lid { width: 560px; height: 370px; }
+
+/* MacBook lid shine overlay */
+.md-device.macbook-pro-16 .lid::after,
+.md-device.macbook-pro-14 .lid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    165deg,
+    rgba(255,255,255,0.12) 0%,
+    rgba(255,255,255,0.03) 20%,
+    transparent 50%,
+    rgba(255,255,255,0.02) 90%
+  );
+  pointer-events: none;
+  z-index: 8;
+}
+
+.md-device.macbook-pro-16 .screen,
+.md-device.macbook-pro-14 .screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: #0a0a0c;
+}
+
+/* Notch */
+.md-device.macbook-pro-16 .notch,
+.md-device.macbook-pro-14 .notch {
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 140px; height: 20px;
+  border-radius: 0 0 10px 10px;
+  background: #1c1c1e;
+  z-index: 10;
+}
+.md-device.macbook-pro-16 .notch::after,
+.md-device.macbook-pro-14 .notch::after {
+  content: '';
+  position: absolute;
+  top: 6px; left: 50%; transform: translateX(-50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a3a1a 20%, #0a0a0e 80%);
+  box-shadow: 0 0 3px rgba(26,58,26,0.3);
+}
+
+/* Keyboard Base — perspective wedge */
+.md-device.macbook-pro-16 .base,
+.md-device.macbook-pro-14 .base {
+  width: 706px;
+  height: 12px;
+  background: linear-gradient(180deg, #48484a, #2c2c2e);
+  margin: 0 auto;
+  position: relative;
+  border-radius: 0 0 12px 12px / 0 0 6px 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.md-device.macbook-pro-14 .base { width: 618px; }
+
+/* Front lip / hinge highlight */
+.md-device.macbook-pro-16 .base::before,
+.md-device.macbook-pro-14 .base::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 22%; height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* MacBook Colors */
+/* Space Black (default) */
+/* Silver */
+.md-device.macbook-pro-16.silver .lid,
+.md-device.macbook-pro-14.silver .lid {
+  background: linear-gradient(180deg, #c0c0c3, #a0a0a4);
+}
+.md-device.macbook-pro-16.silver .base,
+.md-device.macbook-pro-14.silver .base {
+  background: linear-gradient(180deg, #c8c8cc, #a8a8ac);
+}
+
+
+/* ============================================
+   MACBOOK AIR 15" / 13"
+   ============================================ */
+.md-device.macbook-air-15,
+.md-device.macbook-air-13 {
+  position: relative;
+  display: inline-block;
+}
+
+.md-device.macbook-air-15 .lid,
+.md-device.macbook-air-13 .lid {
+  position: relative;
+  width: 600px;
+  height: 394px;
+  border-radius: 14px 14px 0 0;
+  padding: 12px 12px 6px 12px;
+  background: linear-gradient(180deg, #c0c0c3, #a0a0a4);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,0.2),
+    inset 0 -1px 2px rgba(0,0,0,0.2),
+    0 -2px 10px rgba(0,0,0,0.2);
+}
+.md-device.macbook-air-13 .lid { width: 520px; height: 342px; }
+
+/* MacBook Air lid shine overlay */
+.md-device.macbook-air-15 .lid::after,
+.md-device.macbook-air-13 .lid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    165deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.05) 20%,
+    transparent 50%,
+    rgba(255,255,255,0.03) 90%
+  );
+  pointer-events: none;
+  z-index: 8;
+}
+
+.md-device.macbook-air-15 .screen,
+.md-device.macbook-air-13 .screen {
+  width: 100%; height: 100%; border-radius: 6px; background: #0a0a0c;
+}
+
+.md-device.macbook-air-15 .notch,
+.md-device.macbook-air-13 .notch {
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 140px; height: 20px;
+  border-radius: 0 0 10px 10px;
+  background: #a0a0a4;
+  z-index: 10;
+}
+.md-device.macbook-air-15 .notch::after,
+.md-device.macbook-air-13 .notch::after {
+  content: '';
+  position: absolute;
+  top: 6px; left: 50%; transform: translateX(-50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a3a1a 20%, #0a0a0e 80%);
+}
+
+.md-device.macbook-air-15 .base,
+.md-device.macbook-air-13 .base {
+  width: 664px;
+  height: 10px;
+  border-radius: 0 0 10px 10px / 0 0 5px 5px;
+  background: linear-gradient(180deg, #c0c0c3, #a0a0a4);
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.md-device.macbook-air-13 .base { width: 576px; }
+
+/* Air front lip */
+.md-device.macbook-air-15 .base::before,
+.md-device.macbook-air-13 .base::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 20%; height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* MacBook Air Colors */
+/* Silver (default) */
+/* Midnight */
+.md-device.macbook-air-15.midnight .lid,
+.md-device.macbook-air-13.midnight .lid {
+  background: linear-gradient(180deg, #2a2a3c, #1c1c2e);
+}
+.md-device.macbook-air-15.midnight .notch,
+.md-device.macbook-air-13.midnight .notch { background: #1c1c2e; }
+.md-device.macbook-air-15.midnight .base,
+.md-device.macbook-air-13.midnight .base {
+  background: linear-gradient(180deg, #2a2a3c, #1c1c2e);
+}
+/* Starlight */
+.md-device.macbook-air-15.starlight .lid,
+.md-device.macbook-air-13.starlight .lid {
+  background: linear-gradient(180deg, #d4ccc0, #c0b8ac);
+}
+.md-device.macbook-air-15.starlight .notch,
+.md-device.macbook-air-13.starlight .notch { background: #c0b8ac; }
+.md-device.macbook-air-15.starlight .base,
+.md-device.macbook-air-13.starlight .base {
+  background: linear-gradient(180deg, #d0c8bc, #c0b8ac);
+}
+/* Space Gray */
+.md-device.macbook-air-15.space-gray .lid,
+.md-device.macbook-air-13.space-gray .lid {
+  background: linear-gradient(180deg, #6e6e72, #58585c);
+}
+.md-device.macbook-air-15.space-gray .notch,
+.md-device.macbook-air-13.space-gray .notch { background: #58585c; }
+.md-device.macbook-air-15.space-gray .base,
+.md-device.macbook-air-13.space-gray .base {
+  background: linear-gradient(180deg, #68686c, #58585c);
+}
+
+
+/* ============================================
+   iMac 24"
+   ============================================ */
+.md-device.imac-24 {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.md-device.imac-24 .display {
+  position: relative;
+  width: 540px;
+  height: 370px;
+  border-radius: 14px 14px 0 0;
+  padding: 12px;
+  background: linear-gradient(180deg, #d4d4d8, #c8c8cc);
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,0.2),
+    inset 0 -1px 2px rgba(0,0,0,0.2),
+    0 -2px 10px rgba(0,0,0,0.15);
+}
+
+/* iMac display shine overlay */
+.md-device.imac-24 .display::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    165deg,
+    rgba(255,255,255,0.2) 0%,
+    rgba(255,255,255,0.05) 15%,
+    transparent 45%,
+    rgba(255,255,255,0.03) 90%
+  );
+  pointer-events: none;
+  z-index: 8;
+}
+.md-device.imac-24 .screen {
+  width: 100%; height: 100%; border-radius: 6px; background: #0a0a0c;
+}
+.md-device.imac-24 .camera {
+  position: absolute;
+  top: 3px; left: 50%; transform: translateX(-50%);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: radial-gradient(circle, #1a3a1a 20%, #0a0a0e 80%);
+  z-index: 10;
+}
+.md-device.imac-24 .chin {
+  width: 540px; height: 26px;
+  border-radius: 0 0 14px 14px;
+  background: linear-gradient(180deg, #c8c8cc, #b8b8bc);
+}
+.md-device.imac-24 .stand-arm {
+  width: 60px; height: 60px;
+  background: linear-gradient(180deg, #c0c0c4, #b0b0b4);
+  margin: 0 auto;
+}
+.md-device.imac-24 .stand-base {
+  width: 160px; height: 6px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(180deg, #b8b8bc, #a8a8ac);
+  margin: 0 auto;
+}
+
+/* iMac Colors */
+/* Silver (default) */
+/* Blue */
+.md-device.imac-24.blue .chin { background: linear-gradient(180deg, #4a6ea0, #3a5e90); }
+/* Green */
+.md-device.imac-24.green .chin { background: linear-gradient(180deg, #4a8a5a, #3a7a4a); }
+/* Pink */
+.md-device.imac-24.pink .chin { background: linear-gradient(180deg, #c87090, #b86080); }
+/* Orange */
+.md-device.imac-24.orange .chin { background: linear-gradient(180deg, #c88040, #b87030); }
+/* Purple */
+.md-device.imac-24.purple .chin { background: linear-gradient(180deg, #7a60a0, #6a5090); }
