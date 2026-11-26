@@ -149,7 +149,7 @@ document.querySelectorAll('[data-scramble]').forEach(link=>{
 });
 
 if(alternate){
- const sources=['../duoduo-story/assets/raw/brown1.png','purple-1.png','../duoduo-story/assets/raw/brown2.png','purple-2.png','../duoduo-story/assets/raw/brown3.png','purple-1.png'];
+ const sources=['../duoduo-story/assets/raw/brown1.webp','purple-1.webp','../duoduo-story/assets/raw/brown2.webp','purple-2.webp','../duoduo-story/assets/raw/brown3.webp','purple-1.webp'];
  document.querySelectorAll('.transition-images img').forEach((image,index)=>image.src=sources[index]);
  document.body.classList.add('alternate');
 }
